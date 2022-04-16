@@ -11,6 +11,7 @@ public class Booking
 	
 	Booking()
 	{
+		
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter name of passenger: ");
 		passengerName=scanner.next();
