@@ -1,0 +1,60 @@
+package com.employeeApp.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Table(name="Project")
+public class ProjectEntity 
+{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int projectId;
+	
+	@Column
+	@NotEmpty(message="Project title cannot be empty")
+	private String projectTitle;
+	
+	@Column
+	@NotEmpty(message="Project leadname cannot be empty")
+	private String projectLeadName;
+	
+//	@Column
+//	private int TeamSize;
+
+	@ManyToOne
+	private DepartmentEntity department;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<EmployeeDetailEntity> employee=new ArrayList<EmployeeDetailEntity>();
+
+	
+	}
+
+	
+
+
