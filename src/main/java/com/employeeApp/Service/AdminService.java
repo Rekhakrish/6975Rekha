@@ -1,8 +1,8 @@
-package com.employeeApp.Service;
+package com.employeeapp.Service;
 
 import java.util.List;
 
-import com.employeeApp.payload.AdminDto;
+import com.employeeapp.payload.AdminDto;
 
 public interface AdminService 
 {
@@ -10,14 +10,10 @@ public interface AdminService
 
 	public AdminDto getAdmin(int adminId);
 
-
 	public AdminDto updateAdminById(AdminDto adminDto, int adminId);
 
 	public void deleteAdminById(int adminId);
 
 	public List<AdminDto> getAllAdmin();
-
-
-
 
 }

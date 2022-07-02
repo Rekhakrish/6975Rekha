@@ -1,4 +1,4 @@
-package com.employeeApp.entity;
+package com.employeeapp.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -30,27 +29,24 @@ import lombok.ToString;
 @ToString
 @Entity
 @Builder
-@Table(name="Department")
+@Table(name = "Department")
 public class DepartmentEntity 
-{   
+{
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int departmentId;
-	
-	@Column(nullable = false)
-	@NotEmpty(message="department name cannot be empty")
-	@Size(min=5,max=20)
-	private String departmentName;
-	
-    @ManyToOne
-    private AdminEntity admin;
-	
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<EmployeeDetailEntity> employee=new ArrayList<>();
 
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<ProjectEntity> project=new ArrayList<>();
-	
-//    @ManyToOne
-//    private AdminEntity admin;
+	@Column(nullable = false)
+	@NotEmpty(message = "department name cannot be empty")
+	@Size(min = 5, max = 20)
+	private String departmentName;
+
+	@ManyToOne
+	private AdminEntity admin;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<EmployeeEntity> employee = new ArrayList<>();
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<ProjectEntity> project = new ArrayList<>();
 }

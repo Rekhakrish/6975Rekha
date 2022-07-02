@@ -1,6 +1,4 @@
-package com.employeeApp.payload;
-
-import com.employeeApp.entity.DepartmentEntity;
+package com.employeeapp.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,36 +12,28 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 
-public class EmployeeDto
+public class EmployeeDto 
 {
-    private int employeeId;
-    
-	
+	private int employeeId;
+
 	private String employeeFirstName;
-	
+
 	private String employeeLastName;
-	
 
 	private String employeeAddress;
-	
 
 	private String employeeEmail;
-	
 
 	private String employeeMobileNumber;
-	
 
 	private String employeeBloodGroup;
-	
 
 	private String employeeDesignation;
-	
 
 	private String employeeSalary;
-	
+
 	private DepartmentDto department;
 
 	private ProjectDto project;
-	
 
 }

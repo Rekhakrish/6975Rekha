@@ -1,4 +1,4 @@
-package com.employeeApp.entity;
+package com.employeeapp.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -24,7 +23,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Setter
 @Getter
 @NoArgsConstructor
@@ -32,36 +30,34 @@ import lombok.ToString;
 @ToString
 @Entity
 @Builder
-@Table(name="Admin")
-public class AdminEntity 
+@Table(name = "Admin")
+public class AdminEntity
 {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int adminId;
-	
-	@Column(nullable=false)
-	@NotEmpty(message="adminname cannot be empty")
-	
+
+	@Column
+	@NotEmpty(message = "username cannot be empty")
+	@Size(min = 3, max = 15)
 	private String adminName;
-	
-	@Column(nullable=false)
-    @NotEmpty(message="Invalid Email Id")
+
+	@Column(nullable = false)
+	@NotEmpty(message = "Invalid email Id")
 	@Email
-	@Pattern(message="Invalid Id",regexp="^,+$")
+	@Pattern(message = "Invalid email id", regexp = "^.+@.+\\..+$")
 	private String adminEmail;
-	
-	@Column(nullable=false)
-	@Size(min=6,max=18,message="password should")
-	@Pattern(message="your password must match with the specification"
-				+ "[0-9],[a-z],[A-Z],[@#$%^&+=],", regexp = "^(?=.*[0-9])"
-	            + "(?=.*[a-z])(?=.*[A-Z])"
-	            + "(?=.*[@#$%^&+=])"
-	            + "(?=\\S+$).{8,20}$")
+
+	@Column(nullable = false)
+	@NotEmpty(message = "invalid password")
+	@Size(min = 6, max = 18, message = "password should be between 6 to 18 characters")
+	@Pattern(message = "your password must match with the specification"
+			+ "[0-9],[a-z],[A-Z],[@#$%^&+=],", regexp = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])"
+					+ "(?=\\S+$).{8,20}$")
 
 	private String password;
-	
-	
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<DepartmentEntity> department=new ArrayList<DepartmentEntity>();
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<DepartmentEntity> department = new ArrayList<DepartmentEntity>();
 
 }

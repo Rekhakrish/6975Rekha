@@ -1,15 +1,13 @@
-package com.employeeApp.repository;
+package com.employeeapp.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.employeeapp.entity.AdminEntity;
+import com.employeeapp.entity.DepartmentEntity;
 
-import com.employeeApp.entity.AdminEntity;
-import com.employeeApp.entity.DepartmentEntity;
+public interface DepartmentRepository extends JpaRepository<DepartmentEntity, Integer> 
+{
+	List<DepartmentEntity> findByAdmin(AdminEntity admin);
 
-
-
-public interface DepartmentRepository extends JpaRepository<DepartmentEntity, Integer>
- {
-   List<DepartmentEntity> findByAdmin(AdminEntity admin);	
 }

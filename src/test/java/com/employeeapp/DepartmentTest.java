@@ -1,4 +1,4 @@
-package com.boot;
+package com.employeeapp;
 
 import java.util.List;
 
@@ -13,18 +13,18 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.employeeApp.entity.AdminEntity;
-import com.employeeApp.entity.DepartmentEntity;
-import com.employeeApp.repository.AdminRepository;
-import com.employeeApp.repository.DepartmentRepository;
-
+import com.employeeapp.entity.AdminEntity;
+import com.employeeapp.entity.DepartmentEntity;
+import com.employeeapp.repository.AdminRepository;
+import com.employeeapp.repository.DepartmentRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
-public class DepartmentTest {
+public class DepartmentTest 
+{
 	@Autowired
 	private DepartmentRepository departmentRepository;
 
@@ -33,36 +33,41 @@ public class DepartmentTest {
 
 	@Test
 	@Order(1)
-	public void savedDepartmentTest() {
-		DepartmentEntity department = DepartmentEntity.builder().departmentName("SoftwareEngineer").build();
+	public void savedDepartmentTest() 
+	{
+		DepartmentEntity department = DepartmentEntity.builder().departmentName("SystemEngineer").build();
 		departmentRepository.save(department);
 		Assertions.assertThat(department.getDepartmentId()).isGreaterThan(0);
 	}
 
 	@Test
 	@Order(2)
-	public void getByIdDepartmentTest() {
+	public void getByIdDepartmentTest() 
+	{
 		DepartmentEntity department = departmentRepository.findById(1).get();
 		Assertions.assertThat(department);
 	}
 
 	@Test
 	@Order(3)
-	public void getAllDepartmentTest() {
+	public void getAllDepartmentTest() 
+	{
 		List<DepartmentEntity> departmentList = departmentRepository.findAll();
 		Assertions.assertThat(departmentList.size()).isGreaterThan(0);
 	}
 
 	@Test
 	@Order(4)
-	public void getDepartmentByIdTest() {
+	public void getDepartmentByIdTest() 
+	{
 		DepartmentEntity department = departmentRepository.findById(1).get();
 		Assertions.assertThat(department.getDepartmentId()).isEqualTo(1);
 	}
 
 	@Test
 	@Order(5)
-	public void updateAdminTest() {
+	public void updateAdminTest() 
+	{
 		DepartmentEntity department = departmentRepository.findById(1).get();
 		department.setDepartmentName("SystemEngineer");
 		DepartmentEntity updatedDepartment = departmentRepository.save(department);
@@ -71,7 +76,8 @@ public class DepartmentTest {
 
 	@Test
 	@Order(6)
-	public void getDepartmentsByAdminId() {
+	public void getDepartmentsByAdminId() 
+	{
 		AdminEntity admin = adminRepository.findById(1).get();
 		List<DepartmentEntity> departmentList = departmentRepository.findByAdmin(admin);
 		Assertions.assertThat(departmentList.size()).isGreaterThan(0);

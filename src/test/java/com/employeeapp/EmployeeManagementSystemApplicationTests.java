@@ -1,13 +1,16 @@
-package com.boot;
+package com.employeeapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EmployeeManagementSystemApplicationTests {
+class EmployeeManagementSystemApplicationTests 
+{
 
 	@Test
-	void contextLoads() {
+	void contextLoads() 
+	{
+		
 	}
 
 }

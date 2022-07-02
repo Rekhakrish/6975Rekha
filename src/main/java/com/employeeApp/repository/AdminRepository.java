@@ -1,16 +1,10 @@
-package com.employeeApp.repository;
-
-import java.util.List;
+package com.employeeapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.employeeApp.entity.AdminEntity;
+import com.employeeapp.entity.AdminEntity;
 
-
-public interface AdminRepository extends JpaRepository<AdminEntity, Integer>
+public interface AdminRepository extends JpaRepository<AdminEntity, Integer> 
 {
-
-
- 
 
 }

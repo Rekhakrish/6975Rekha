@@ -1,14 +1,18 @@
-package com.employeeApp.repository;
+package com.employeeapp.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.employeeapp.entity.DepartmentEntity;
+import com.employeeapp.entity.EmployeeEntity;
+import com.employeeapp.entity.ProjectEntity;
 
-import com.employeeApp.entity.DepartmentEntity;
-import com.employeeApp.entity.EmployeeDetailEntity;
-
-
-public interface EmployeeRepository extends JpaRepository<EmployeeDetailEntity, Integer>
+public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Integer>
 {
-   List<EmployeeDetailEntity> findByDepartment(int departmentId);
+	List<EmployeeEntity> findByDepartment(DepartmentEntity department);
+
+	List<EmployeeEntity> findByProject(ProjectEntity project);
+
+	Optional<EmployeeEntity> findByEmployeeEmail(String employeeEmail);
 }

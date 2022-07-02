@@ -1,8 +1,6 @@
-package com.employeeApp.payload;
+package com.employeeapp.payload;
 
 import java.util.List;
-
-import com.employeeApp.entity.AdminEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,19 +17,13 @@ import lombok.ToString;
 public class DepartmentDto
 {
 	private int departmentId;
-	
+
 	private String departmentName;
-	
-	
-    
+
 	private List<EmployeeDto> employee;
-	
-	private List <ProjectDto> project;
-	
+
+	private List<ProjectDto> project;
+
 	private AdminDto admin;
 
-	
-
-	
-	
 }
